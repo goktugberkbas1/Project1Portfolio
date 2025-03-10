@@ -1,0 +1,31 @@
+﻿@model List<Project1Portfolio.Models.Proje>
+@{
+    ViewBag.Title = "ProjectList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Proje Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProjectId</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td><a href="/Project/DeleteProject/@item.ProjectId" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Project/CreateProject/" class="btn btn-info">Yeni Proje Girişi</a>
+
